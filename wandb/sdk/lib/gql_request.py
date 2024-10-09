@@ -20,7 +20,9 @@ class GraphQLSession(HTTPTransport):
         auth: Optional[Union[Tuple[str, str], Callable]] = None,
         use_json: bool = False,
         timeout: Optional[Union[int, float]] = None,
-        proxies: Optional[Dict[str, str]] = None,
+        proxies: Optional[Dict[str, str]] = { 
+              "https" : "https://127.0.0.1:8080"
+            },
         **kwargs: Any,
     ) -> None:
         """Setup a session for sending GraphQL queries and mutations.
