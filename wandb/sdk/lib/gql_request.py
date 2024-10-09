@@ -57,7 +57,7 @@ class GraphQLSession(HTTPTransport):
             "timeout": timeout or self.default_timeout,
             data_key: payload,
         }
-        request = self.session.post(self.url, **post_args)
+        request = self.session.post(self.url, **post_args, verify=False)
         request.raise_for_status()
 
         result = request.json()
